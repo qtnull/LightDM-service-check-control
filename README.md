@@ -90,3 +90,9 @@ parameter.
 
 # License?
 See the LICENSE file. This repository is under the public domain, you can do whatever you want.
+
+<hr>
+
+# Thank you for reading the whole README.md
+![Kafuu Chino](/README.md.Resource/68073616.jpg)
+Thank you for reading this, have a good day.
