@@ -1,0 +1,79 @@
+#!/bin/bash
+
+ParameterErrorIsPresent="True"
+
+if [[ $@ = "-?" ]]
+then
+    echo "(No parameters): Check if the Light Display Manager service is running or not, if the service is running, stop the service (and print the status) and vice versa"
+    echo "-s: Print the status of the service Light Display Manager and exit"
+    echo "--help: Display this info/help and exit"
+    echo "-h: Display this info/help and exit"
+    echo "-?: Display this info/help and exit"
+    ParameterErrorIsPresent="False"
+    exit
+else
+    :
+fi
+
+if [[ $@ = "-h" ]]
+then
+    echo "(No parameters): Check if the Light Display Manager service is running or not, if the service is running, stop the service (and print the status) and vice versa"
+    echo "-s: Print the status of the service Light Display Manager and exit"
+    echo "--help: Display this info/help and exit"
+    echo "-h: Display this info/help and exit"
+    echo "-?: Display this info/help and exit"
+    ParameterErrorIsPresent="False"
+    exit
+else
+    :
+fi
+
+if [[ $@ = "--help" ]]
+then
+    echo "(No parameters): Check if the Light Display Manager service is running or not, if the service is running, stop the service (and print the status) and vice versa"
+    echo "-s: Print the status of the service Light Display Manager and exit"
+    echo "--help: Display this info/help and exit"
+    echo "-h: Display this info/help and exit"
+    echo "-?: Display this info/help and exit"
+    exit
+else
+    :
+fi
+
+if [[ $@ = "-s" ]]
+then
+    ParameterErrorIsPresent="False"
+    if pgrep -x "lightdm" > /dev/null
+    then
+        echo "Light Display Manager is now running, desktop/VNC is availavle"
+        exit
+    else
+        echo "Light Display Manager is now stopped, desktop/VNC is unavailable"
+        exit
+    fi
+else
+    :
+fi
+
+if [[ -z $@ ]]
+then
+    ParameterErrorIsPresent="False"
+    if pgrep -x "lightdm" > /dev/null
+    then
+        service lightdm stop
+        echo "Light Display Manager is now stopped, desktop/VNC is unavailavle"
+    else
+        service lightdm start
+        echo "Light Display Manager is now running, desktop/VNC is available"
+    fi
+fi
+
+if [[ $ParameterErrorIsPresent = "True"  ]]
+then
+    echo "Error: unknown parameter(s), please refer to" $0 "--help to get help information."
+    echo "Unknown parameter(s): "
+    echo $@
+else
+    :
+fi
+
