@@ -61,7 +61,7 @@ then
     if pgrep -x "lightdm" > /dev/null
     then
         service lightdm stop
-        echo "Light Display Manager is now stopped, desktop/VNC is unavailavle"
+        echo "Light Display Manager is now stopped, desktop/VNC is unavailable"
     else
         service lightdm start
         echo "Light Display Manager is now running, desktop/VNC is available"
