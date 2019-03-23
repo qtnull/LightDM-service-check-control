@@ -30,6 +30,9 @@ not run or cannot be recognized</i>
 # How to use it? 
 By default, the script should be runned <b>without any parameters</b> or it will return an "Unknown parameter error".
 <pre>desktop</pre>
+Bu running the script, the script will check if the service "lightdm" is running (or not), if it finds out that the service
+is running, it will stop it, if it isn't running, it will start the service.
+
 The program should output something like this:
 <pre>pervertAdministrator@qt0-ayumi:~ $ desktop
 ==== AUTHENTICATING FOR org.freedesktop.systemd1.manage-units ===
