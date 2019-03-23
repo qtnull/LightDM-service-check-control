@@ -1,5 +1,5 @@
 # LightDM-service-check-control
-A Light Display Manager check and control script for Debian based Linux distributions (like Raspbian, not sure if it will run
+A Light Display Manager (service) check and control script for Debian based Linux distributions (like Raspbian, not sure if it will run
 on any other Linux distributions, this is script is tested on Raspbian only)
 
 # What does it do?
